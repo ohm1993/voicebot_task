@@ -4,10 +4,8 @@ const recognition = new SpeechRecognition();
 const socket = io();
 
 recognition.interimResults = false;
-//recognition.lang = 'en-US';
+recognition.lang = 'en-US';
 document.querySelector('button').addEventListener('click',()=>{
-	console.log("choosen language is",select_dialect.value);
-	recognition.lang = select_dialect.value;
 	recognition.start();
 });
 
@@ -97,34 +95,5 @@ resetChat();
 
 //-- Print Messages
 insertChat("bot", "Hi, How are you", 0);
-
-var langs =
-[
- ['English',         ['en-AU', 'Australia'],
-                     ['en-CA', 'Canada'],
-                     ['en-IN', 'India'],
-                     ['en-NZ', 'New Zealand'],
-                     ['en-ZA', 'South Africa'],
-                     ['en-GB', 'United Kingdom'],
-                     ['en-US', 'United States']],
-  ['हिन्दी (भारत)',     ['hi-IN', 'India']]                   
- ];
-for (var i = 0; i < langs.length; i++) {
-  select_language.options[i] = new Option(langs[i][0], i);
-}
-console.log("select language values are",select_language);
- select_language.selectedIndex = 0;
-updateCountry();
-select_dialect.selectedIndex = 6;
-function updateCountry() {
-  for (var i = select_dialect.options.length - 1; i >= 0; i--) {
-    select_dialect.remove(i);
-  }
-  var list = langs[select_language.selectedIndex];
-  for (var i = 1; i < list.length; i++) {
-    select_dialect.options.add(new Option(list[i][1], list[i][0]));
-  }
-  select_dialect.style.visibility = list[1].length == 1 ? 'hidden' : 'visible';
-}
 
 

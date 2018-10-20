@@ -40,7 +40,7 @@
     padding:0;
 }
 .frame > div:last-of-type{
-    position:absolute;bottom:0;width:100%;display:flex;
+    position:absolute;bottom:0;width:100%;display:flex;bottom: -3.5rem;
 }
 body > div > div > div:nth-child(2) > span{
     background: whitesmoke;padding: 10px;font-size: 21px;border-radius: 50%;
